@@ -1,0 +1,48 @@
+// Version: 1.0.0
+type AboutInfo__268025589 =
+  {bio : Text; profilePhotoUrl : Text; socialLinks : [SocialLink__170481185]};
+type ContactId__246256953 = Nat;
+type ContactSubmission__93684224 =
+  {
+    email : Text;
+    id : ContactId__246256953;
+    message : Text;
+    name : Text;
+    read : Bool;
+    timestamp : Timestamp__301639476
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type ProjectId__661817938 = Nat;
+type Project__614212307 =
+  {
+    description : Text;
+    id : ProjectId__661817938;
+    imageUrl : Text;
+    liveUrl : Text;
+    order : Nat;
+    sourceUrl : Text;
+    techTags : [Text];
+    title : Text;
+    visible : Bool
+  };
+type SocialLink__170481185 = {icon : Text; title : Text; url : Text};
+type Timestamp__301639476 = Int;
+actor {
+  stable aboutRef : {var value : ?AboutInfo__268025589};
+  stable nextContactId : {var value : Nat};
+  stable nextProjectId : {var value : Nat};
+  stable ownerRef : {var value : ?Principal};
+  stable projects :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Project__614212307]];
+      var elementIndex : Nat__490723111
+    };
+  stable submissions :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ContactSubmission__93684224]];
+      var elementIndex : Nat__490723111
+    }
+};

@@ -1,0 +1,23 @@
+{
+  "overview": "A professional portfolio website with a public showcase — hero, featured projects, about, and contact sections — plus an authenticated admin dashboard for managing all portfolio content.",
+  "features": [
+    "Hero section with name, title, and call-to-action",
+    "Projects grid with detail pages, tech tags, and links",
+    "About section with bio and profile photo",
+    "Contact form with message storage",
+    "Admin dashboard secured with Internet Identity",
+    "Add, edit, and delete projects with image upload",
+    "Light/dark mode toggle persisted to local storage",
+    "Mobile-responsive layout"
+  ],
+  "category": "showcase",
+  "tags": [
+    "portfolio",
+    "showcase",
+    "projects",
+    "admin",
+    "dark-mode",
+    "responsive"
+  ],
+  "last_updated": "2026-04-18T15:25:12.720Z"
+}

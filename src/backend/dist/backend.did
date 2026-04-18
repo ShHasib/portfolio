@@ -1,0 +1,68 @@
+type Timestamp = int;
+type SocialLink = 
+ record {
+   icon: text;
+   title: text;
+   url: text;
+ };
+type ProjectInput = 
+ record {
+   description: text;
+   imageUrl: text;
+   liveUrl: text;
+   order: nat;
+   sourceUrl: text;
+   techTags: vec text;
+   title: text;
+   visible: bool;
+ };
+type ProjectId = nat;
+type Project = 
+ record {
+   description: text;
+   id: ProjectId;
+   imageUrl: text;
+   liveUrl: text;
+   order: nat;
+   sourceUrl: text;
+   techTags: vec text;
+   title: text;
+   visible: bool;
+ };
+type ContactSubmission = 
+ record {
+   email: text;
+   id: ContactId;
+   message: text;
+   name: text;
+   read: bool;
+   timestamp: Timestamp;
+ };
+type ContactInput = 
+ record {
+   email: text;
+   message: text;
+   name: text;
+ };
+type ContactId = nat;
+type AboutInfo = 
+ record {
+   bio: text;
+   profilePhotoUrl: text;
+   socialLinks: vec SocialLink;
+ };
+service : {
+  addProject: (input: ProjectInput) -> (Project);
+  deleteProject: (id: ProjectId) -> (bool);
+  getAbout: () -> (opt AboutInfo) query;
+  getContactSubmissions: () -> (vec ContactSubmission);
+  getProject: (id: ProjectId) -> (opt Project) query;
+  getProjects: () -> (vec Project) query;
+  initOwner: () -> (bool);
+  isOwner: () -> (bool) query;
+  markContactRead: (id: ContactId) -> (bool);
+  submitContact: (input: ContactInput) -> (ContactSubmission);
+  updateAbout: (bio: text, socialLinks: vec SocialLink) -> ();
+  updateProfilePhoto: (photoUrl: text) -> ();
+  updateProject: (id: ProjectId, input: ProjectInput) -> (bool);
+}
